@@ -1,0 +1,79 @@
+<ion-header>
+  <div class='backgroundHeader'>
+      <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+          <!-- <ion-title>{{event.title}}</ion-title> -->
+        </ion-toolbar>
+    <img src='{{event.image}}' class='headerImage'>
+   
+  </div>
+    
+</ion-header>
+
+<ion-content>
+<div class='info'>
+  <h3>{{event.title}}</h3>
+  <span class='subInfo'>
+    <span class='eventType'>Public Event</span>  
+    <span class='eventInfo'>Hosted By TSH Amsterdam City</span>  
+    <span class='eventDate'><ion-icon name="time"></ion-icon>{{dateTime | date: 'EEEE MMM yy'}} from {{dateTime | date: 'h:mm aa'}}</span>
+    <span class='eventPlace'><ion-icon name="pin"></ion-icon>The Pool - The Student Hotel Amsterdam City</span>
+    <span class='totalMembers' *ngIf='event && event.members'><ion-icon name="people"></ion-icon>{{event.members.length}} Going</span>
+    <span class='avatars' *ngIf='event.members'>
+        <app-members [members]='event.members' [index]='7' [others]='"short"'></app-members>
+
+      </span> 
+    </span>
+    {{event.description}}
+</div>
+<div class='message'>
+  <ion-input placeholder='Leave a message...'></ion-input>
+</div>
+
+<div class='comment'>
+  <div class='user row'>
+    <div class='avatar'>
+        <img class='commentAvatar' src='{{event.members[0].photo}}'>
+           
+    </div>
+    <div class='col-7 userInfo'>
+      <div class='row'>
+          <p><span class='name'>Name Surname</span> did a thing
+          </p>
+      </div>
+      <div class='row time'>
+          <ion-icon name="time"></ion-icon> 14 min ago
+      </div>
+    </div>
+    <div class='col-2 share'>
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-12'>
+        Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur
+    </div>
+  </div>
+  <div class='row postStats'>
+    <div class='col-12'>
+        <ion-icon name="hand"></ion-icon> 14
+    </div>
+  </div>
+  <div class='row userActions'>
+    <div class='col-6'>
+      <button>
+        <ion-icon name="hand"></ion-icon>
+        High Five
+      </button>
+    </div>
+    <div class='col-6'>
+      <button>
+        <ion-icon name="chatboxes"></ion-icon>
+        Comment
+      </button>
+    </div>
+  </div>
+</div>
+</ion-content>

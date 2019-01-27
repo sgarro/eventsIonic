@@ -1,0 +1,5 @@
+<ng-container class='avatarWrapper' *ngFor='let member of members; let i=index '> 
+    <img *ngIf='i<index' src='{{member.photo}}' ngbTooltip="User id: {{member.id}}">
+</ng-container>
+<span *ngIf='members.length>index && others=="long"' class='othersLong'>+ {{members.length-3}} Others</span>
+<span *ngIf='members.length>index && others=="short"' class='othersShort'>+ {{members.length-3}}</span>

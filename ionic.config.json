@@ -1,5 +1,16 @@
 {
   "name": "ireckonu",
-  "integrations": {},
-  "type": "angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://tsh-app.firebaseio.com",
+      "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+    }
+  ]
 }

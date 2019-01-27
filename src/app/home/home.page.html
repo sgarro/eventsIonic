@@ -1,12 +1,53 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title class='title'>
+      Events
     </ion-title>
   </ion-toolbar>
+<ion-searchbar [(ngModel)]="search"></ion-searchbar> 
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content>
+    <ngb-alert [dismissible]="false" [type]='error.type' *ngIf='error'>
+        {{error.message}}
+      </ngb-alert>
+      
+      <div class='todayEvents eventsDiv'>
+        <div class='banner'>
+          Today
+        </div>
+        <ion-item class='event' *ngFor="let e of  events | search : search | sort: 'today'">
+          <app-event [event]="e" [when]='"today"'></app-event>        
+        </ion-item>
+        <ng-container *ngIf="(events | search : search | sort: 'today').length==0">
+          <h3 class='noResults'>No Events</h3>
+        </ng-container>
+      </div>
+      
+      <div class='weekEvents eventsDiv'>
+        <div class='banner'>
+          This Week
+        </div>
+        <ion-item class='event' *ngFor="let e of  events | search : search | sort: 'week'">
+          <app-event [event]="e" [when]='"week"'></app-event>        
+        </ion-item>
+        <ng-container *ngIf="(events | search : search | sort: 'week').length==0">
+            <h3 class='noResults'>No Events</h3>
+          </ng-container>
+      </div>
+      
+      <div class='otherEvents eventsDiv'>
+        <div class='banner'>
+          Other
+        </div>
+        <ion-item class='event' *ngFor="let e of  events | search : search | sort: 'other'">
+          <app-event [event]="e" [when]='"other"'></app-event>        
+        </ion-item>
+        <ng-container *ngIf="(events | search : search | sort: 'other').length==0">
+            <h3 class='noResults'>No Events</h3>
+          </ng-container>
+      </div>
+      
+  
+    
 </ion-content>

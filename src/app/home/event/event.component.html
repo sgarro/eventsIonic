@@ -1,0 +1,32 @@
+<div class='row wrapper'>
+  <div class='col-5 imageDiv'>
+      <img src="{{event.image}}">
+      <div class='dateHover'>
+          {{dateTime | date: 'dd MMM'}}
+      </div>
+  </div>
+  <div class='col-7 info'>
+    <span class='title' (click)='goToEvent()'> {{event.title}} </span>
+    <span class='dateTime' *ngIf='when=="today"' >
+      Today from {{dateTime | date: 'h aa'}}
+    </span>
+    <span class='dateTime' *ngIf='when=="week"' >
+        {{dateTime | date: 'EEEE'}} from {{dateTime | date: 'h aa'}}
+    </span>
+    <span class='dateTime' *ngIf='when=="other"' >
+        {{dateTime | date: 'dd MMM yy'}} from {{dateTime | date: 'h aa'}}
+    </span>
+    <span class='avatars' *ngIf='event.members'>
+      <!-- <ng-container class='avatarWrapper' *ngFor='let member of event.members; let i=index '> 
+          <img *ngIf='i<3' src='{{member.photo}}'>
+      </ng-container> -->
+      <app-members [members]='event.members' [index]='3' [others]='"long"'></app-members>
+      <!-- <span *ngIf='event.members.length>3' class='others'>+ {{event.members.length-3}} Others</span> -->
+    </span>
+    <span class='button'>
+    <button *ngIf="event.status!='ignore'" [ngClass]="{'statusButton':true, 'status':(event.status=='going')}" (click)="event.status='going'"><span class='checkmark' *ngIf="event.status=='going'">✓</span>Going</button>
+    <button *ngIf="event.status!='going'"  [ngClass]="{'statusButton':true, 'status':(event.status=='ignore')}" (click)="event.status='ignore'"><span class='checkmark' *ngIf="event.status=='ignore'">✓</span>Ignore</button>
+    </span>
+  </div>
+  
+</div>
