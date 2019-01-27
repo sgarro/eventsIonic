@@ -1,3 +1,5 @@
+app-members
+    margin-bottom: 15px
 ion-toolbar
     position: absolute
     color: white
@@ -6,8 +8,6 @@ img.headerImage
     width: 100%
 .toolbar-background
     background: transparent
-.avatars
-    text-align: center
 .message
     background: white
     padding: 15px
@@ -25,6 +25,11 @@ span
     background: white
     padding: 15px
     font-size: 13px
+    span
+        margin-bottom: 10px
+        .avatars
+            text-align: center
+            margin-bottom: 20px
     h3 
         font-weight: bolder
         text-transform: uppercase
@@ -35,8 +40,8 @@ span
         overflow: hidden
         text-overflow: ellipsis
         p
-            text-overflow: ellipsis;
-            overflow: hidden;
+            text-overflow: ellipsis
+            overflow: hidden
 .showSpan
     float: right
 .description.more
@@ -50,6 +55,8 @@ span
         overflow: hidden
         text-overflow: ellipsis
         padding: 5px 16px 0px 16px
+    .subtitle
+        font-weight: 200;
     .link
         font-size: 12px
         color: #ddd
@@ -83,6 +90,7 @@ span
             ion-icon
                 width: 50px
                 height: 50px
+                float: right
     .userActions
         text-align: center
         button
