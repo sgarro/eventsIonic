@@ -26,7 +26,12 @@
 
       </span> 
     </span>
-    {{event.description}}
+    <div [ngClass]='{"description": true, "more": more}'>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>
+    <span *ngIf='!more' class='showSpan' (click)='more=!more'>Show More</span>
+    <span *ngIf='more' class='showSpan' (click)='more=!more'>Show Less</span>
+  </div>
+
 </div>
 <div class='message'>
   <ion-input placeholder='Leave a message...'></ion-input>
@@ -54,6 +59,54 @@
   <div class='row'>
     <div class='col-12'>
         Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur
+    </div>
+  </div>
+  <div class='row postStats'>
+    <div class='col-12'>
+        <ion-icon name="hand"></ion-icon> 14
+    </div>
+  </div>
+  <div class='row userActions'>
+    <div class='col-6'>
+      <button>
+        <ion-icon name="hand"></ion-icon>
+        High Five
+      </button>
+    </div>
+    <div class='col-6'>
+      <button>
+        <ion-icon name="chatboxes"></ion-icon>
+        Comment
+      </button>
+    </div>
+  </div>
+</div>
+<div class='comment'>
+  <div class='user row'>
+    <div class='avatar'>
+        <img class='commentAvatar' src='{{event.members[0].photo}}'>
+           
+    </div>
+    <div class='col-7 userInfo'>
+      <div class='row'>
+          <p><span class='name'>Name Surname</span> did a thing
+          </p>
+      </div>
+      <div class='row time'>
+          <ion-icon name="time"></ion-icon> 14 min ago
+      </div>
+    </div>
+    <div class='col-2 share'>
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-12'>
+        How to ride like a real Dutchie!
+        <img src='{{event.image}}' class='headerImage'>
+        <h3 class='previewTitle'>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</h3>
+        <h6 class='subtitle'>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</h6>
+        <span class='link'>youtube.com</span>
     </div>
   </div>
   <div class='row postStats'>
